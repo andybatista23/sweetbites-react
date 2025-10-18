@@ -213,8 +213,8 @@
   .arrow.prev { left: -10px; }
   .arrow.next { right: -10px; }
 }
-  }
-}
+  
+
 
 @media (max-width: 900px) {
   .producto {
