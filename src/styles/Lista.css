@@ -1,0 +1,136 @@
+/* Lista.css */
+
+/* Contenedor principal - ocupa toda la pantalla */
+.lista-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #fdf6f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* Carrusel con efecto de desvanecimiento tipo "polvo" */
+.lista-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: 80%;
+  max-width: 90%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 1;
+}
+
+.lista-img.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Opcional: agregar un efecto de escala sutil para simular dispersión de polvo */
+.lista-img.active {
+  animation: fadeScale 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeScale {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+
+
+/* Mensaje cuando no hay imágenes */
+.lista-container > div {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: center;
+}
+
+/* Indicadores de posición (puntos) */
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid #7b4bb7;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: #7b4bb7;
+  transform: scale(1.2);
+}
+
+/* Responsivo para móviles */
+@media screen and (max-width: 768px) {
+  .lista-container {
+    height: 70vh;
+  }
+
+  .arrow {
+    font-size: 1.5rem;
+    padding: 10px 14px;
+  }
+
+  .arrow.prev {
+    left: 15px;
+  }
+
+  .arrow.next {
+    right: 15px;
+  }
+
+  .lista-img {
+    height: 70%;
+    max-width: 85%;
+    transition: opacity 1.5s ease-in-out; /* Un poco más rápido en móviles */
+  }
+
+  .carousel-dots {
+    bottom: 10px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Responsivo para tablets */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .lista-container {
+    height: 85vh;
+  }
+  
+  .arrow {
+    font-size: 1.8rem;
+    padding: 11px 16px;
+  }
+}

@@ -1,0 +1,19 @@
+/* Dividers.css */
+.dividers-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* separación entre cada divider */
+  align-items: center;
+}
+
+.divider {
+  width: 80%;
+  height: auto;
+}
+
+.divider svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

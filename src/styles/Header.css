@@ -1,0 +1,189 @@
+/* Header.css */
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #C7B7E0; /* Lila suave de SweetBites */
+  padding: 15px 30px;
+  color: white;
+  position: fixed;      /* Fijo en la pantalla */
+  top: 0;               /* Siempre en la parte superior */
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(163, 126, 208, 0.3); /* Morado más intenso */
+}
+
+/* Logo */
+.logo a {
+  display: flex;              /* Para alinear imagen y texto */
+  align-items: center;
+  gap: 10px;                  /* Espacio entre imagen y texto */
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #6B4226;             /* Marrón de los brownies */
+  text-decoration: none;      /* Quita subrayado */
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.logo a:hover {
+  color: #FFEB3B;             /* Amarillo de SweetBites al pasar el cursor */
+  transform: translateY(-2px);
+}
+
+.logo-img {
+  width: 50px;   /* Ajusta según prefieras */
+  height: auto;
+}
+
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #6B4226; /* Marrón de los brownies */
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 22px;
+}
+
+.nav ul li a:hover {
+  color: #FFEB3B; /* Amarillo de SweetBites */
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Botón del menú hamburguesa */
+.menu-btn {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #6B4226; /* Marrón de los brownies */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  padding: 5px;
+}
+
+.menu-btn:hover {
+  transform: rotate(90deg);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 12px 20px;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #C7B7E0; /* Lila suave de SweetBites */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(163, 126, 208, 0.3);
+  }
+
+  .nav.open {
+    max-height: 200px; /* Ajusta según cantidad de links */
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 0;
+  }
+
+  .nav ul li {
+    width: 100%;
+  }
+
+  .nav ul li a {
+    display: block;
+    padding: 12px 30px;
+    transition: all 0.3s ease;
+  }
+
+  .nav ul li a:hover {
+    background-color: #A37ED0; /* Morado más intenso */
+    color: white;
+    transform: none;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+}
+
+/* Efectos adicionales para mejorar la estética */
+.logo::before {
+  
+  margin-right: 8px;
+  font-size: 1.5rem;
+}
+
+.nav ul li a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #FFEB3B; /* Amarillo de SweetBites */
+  transition: width 0.3s ease;
+}
+
+.nav ul li a:hover::after {
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .nav.open {
+    max-height: 500px; /* Más alto para que todos los links quepan */
+  }
+
+  .nav ul li a {
+    padding: 12px 20px; /* Ajuste para que no se corte el texto */
+  }
+}
+
+/* ----------------------------- */
+/* Ajuste del contenido debajo del header */
+body {
+  padding-top: 80px; /* Ajusta al alto de tu header */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #6B4226; /* Marrón de los brownies */
+  cursor: pointer;
+}
+
+.logo-img {
+  width: 50px;   /* Ajusta según prefieras */
+  height: auto;
+}

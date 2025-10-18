@@ -1,0 +1,68 @@
+.footer {
+  background: var(--header-bg);
+  color: var(--header-text);
+  text-align: center;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  box-shadow: 0 -4px 20px var(--header-shadow);
+}
+
+.footer-logo h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--header-text);
+  margin-bottom: 0.3rem;
+}
+
+.footer-logo p {
+  font-size: 1.1rem;
+  color: var(--modal-text);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-social a {
+  color: var(--header-accent);
+  font-size: 1.8rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: var(--modal-cta-end);
+  transform: scale(1.2);
+}
+
+.footer-copy p {
+  font-size: 0.9rem;
+  color: var(--modal-text);
+  opacity: 0.8;
+}
+
+/* Icono de redes sociales */
+.footer-social .icon-img {
+  width: 24px;         /* Tamaño del icono */
+  height: 24px;        /* Mantener proporción */
+  margin-right: 0.5rem; /* Espacio entre icono y texto */
+  vertical-align: middle; /* Alineación con el texto */
+  transition: transform 0.3s ease; /* Animación al hover */
+}
+
+.footer-social a:hover .icon-img {
+  transform: scale(1.2); /* Hacer que el icono también haga zoom al hover */
+}
+.footer-contact {
+  color: var(--modal-text);
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.footer-contact p {
+  margin: 0.2rem 0;
+}

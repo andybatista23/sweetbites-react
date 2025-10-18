@@ -1,0 +1,67 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Card principal */
+.card-description {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px 20px;
+  margin: 30px auto;
+  max-width: 800px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-description:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  cursor: pointer;
+}
+
+/* Título y texto */
+.card-title {
+  font-size: 2.2rem;
+  color: #e91ee993;
+  margin-bottom: 15px;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* ----------------- Responsividad ----------------- */
+@media screen and (max-width: 768px) {
+  .card-description {
+    padding: 25px 15px;
+    max-width: 90%; /* Ocupa casi todo el ancho de la pantalla */
+  }
+
+  .card-title {
+    font-size: 1.8rem;
+  }
+
+  .card-text {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card-description {
+    padding: 20px 10px;
+    margin: 20px auto;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-text {
+    font-size: 0.95rem;
+  }
+}

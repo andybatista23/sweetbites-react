@@ -1,0 +1,254 @@
+/* App.css */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #fdf6f0;
+  color: #333;
+}
+html {
+  scroll-behavior: smooth;
+}
+h1{
+  text-align: center;         /* Centra el texto horizontalmente */
+  font-size: 3rem;            /* Tamaño grande */
+  color: #6B4226;             /* Color rosa fucsia */
+  margin: 60px 0 40px 0;      /* Espaciado arriba y abajo */
+  font-weight: 700;           /* Negrita */
+  text-transform: none;  /* Todo en mayúsculas */
+  letter-spacing: 2px;        /* Espaciado entre letras */
+}
+
+:root {
+  /* Header / General */
+  --header-bg: #C7B7E0;        /* Lila suave */
+  --header-text: #6B4226;      /* Marrón chocolate */
+  --header-accent: #A37ED0;    /* Morado intenso */
+  --header-hover: #8C6AB8;     /* Morado medio */
+  --header-shadow: rgba(163, 126, 208, 0.35);
+
+  /* Modal */
+  --modal-bg-start: #C7B7E0;   /* Lila suave */
+  --modal-bg-end: #F3ECFA;     /* Lila muy claro */
+  --modal-border: #A37ED0;     /* Morado intenso */
+  --modal-title: #6B4226;      /* Marrón chocolate */
+  --modal-text: #4A3420;       /* Marrón más oscuro para contraste */
+  --modal-check: #ff3bd5;      /* Amarillo crema */
+  --modal-cta-start: #A37ED0;  /* Morado intenso */
+  --modal-cta-end: #de3bff;    /* Amarillo crema brillante */
+
+  /* Extras */
+  --white: #FFFFFF;
+  --light-lila: #E6DDF2;
+  --dark-brown: #4A3420;
+}
+
+
+.app {
+  text-align: center;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section {
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #E91E63; /* Rosa fucsia de SweetBites */
+}
+
+/* Ajuste para el carrusel de Lista */
+.lista-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.lista-img {
+  display: none;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.lista-img.active {
+  display: block;
+}
+
+/* Flechas */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 5px;
+}
+
+.arrow.prev {
+  left: 10px;
+}
+
+.arrow.next {
+  right: 10px;
+}
+
+/* ------------------ ModalMensaje Mejorado (con variables) ------------------ */
+.modal-contacto {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1200;
+  overflow: hidden;
+}
+
+/* Contenido del modal con animación */
+.modal-content.modal-mensaje-animado {
+  background: linear-gradient(
+    135deg, 
+    var(--modal-bg-start) 0%, 
+    var(--modal-bg-end) 50%, 
+    var(--header-accent) 100%
+  );
+  color: var(--modal-text);
+  border-radius: 28px;
+  border: 2px solid var(--modal-border);
+  box-shadow: 0 16px 48px var(--header-shadow);
+  padding: 2.5rem 2rem;
+  width: 360px;
+  max-width: 95vw;
+  max-height: 90vh;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  animation: modalIn 0.7s cubic-bezier(.68, -0.55, .27, 1.55);
+}
+
+/* Animación de entrada */
+@keyframes modalIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(-60px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.05) translateY(15px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Check animado */
+.check-animado {
+  margin-bottom: 1rem;
+}
+.check-animado svg {
+  width: 80px;
+  height: 80px;
+}
+.check-animado circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 4;
+  stroke: var(--modal-cta-end);
+  fill: none;
+  animation: strokeCircle 0.6s cubic-bezier(.65, .05, .36, 1) forwards;
+}
+.check-animado polyline {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke-width: 4;
+  stroke: var(--modal-cta-start);
+  fill: none;
+  animation: strokeCheck 0.4s 0.5s cubic-bezier(.65, .05, .36, 1) forwards;
+}
+@keyframes strokeCircle { to { stroke-dashoffset: 0; } }
+@keyframes strokeCheck { to { stroke-dashoffset: 0; } }
+
+/* Título y texto */
+.modal-content.modal-mensaje-animado h2 {
+  color: var(--modal-title);
+  font-size: 1.7rem;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.modal-content.modal-mensaje-animado p {
+  color: var(--modal-text);
+  font-size: 1.15rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Botón CTA */
+.modal-content.modal-mensaje-animado .cta-btn {
+  background: linear-gradient(
+    90deg, 
+    var(--modal-cta-start) 0%, 
+    var(--modal-cta-end) 100%
+  );
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 30px;
+  padding: 0.8rem 2.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.18s, box-shadow 0.18s;
+}
+.modal-content.modal-mensaje-animado .cta-btn:hover {
+  background: linear-gradient(
+    90deg, 
+    var(--modal-cta-end) 0%, 
+    var(--modal-cta-start) 100%
+  );
+  transform: scale(1.05);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+}
+
+/* Botón cerrar (X) */
+.modal-content.modal-mensaje-animado .modal-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 1.7rem;
+  color: var(--modal-cta-start);
+  cursor: pointer;
+  font-weight: 700;
+  z-index: 2;
+  line-height: 1;
+  transition: color 0.2s, transform 0.2s;
+}
+.modal-content.modal-mensaje-animado .modal-close:hover {
+  color: var(--modal-title);
+  transform: scale(1.2);
+}
