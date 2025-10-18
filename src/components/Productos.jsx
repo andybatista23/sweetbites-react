@@ -65,40 +65,42 @@ function Productos({ listaProductos = [], productosPorPagina = 3 }) {
 
   return (
     <div className="productos-wrapper">
-      {totalPaginas > 1 && (
-        <>
-          <button className="arrow prev" onClick={handlePrev}>
-            &larr;
-          </button>
-          <button className="arrow next" onClick={handleNext}>
-            &rarr;
-          </button>
-        </>
-      )}
+      <div className="productos-contenedor">
+        {totalPaginas > 1 && (
+          <>
+            <button className="arrow prev" onClick={handlePrev}>
+              &larr;
+            </button>
+            <button className="arrow next" onClick={handleNext}>
+              &rarr;
+            </button>
+          </>
+        )}
+        
+        <div className={`productos-catalogo ${animar ? "fade" : ""}`}>
+          {productosActuales.map((prod, index) => {
+            const imagePath = encontrarImagen(prod);
 
-      <div className={`productos-catalogo ${animar ? "fade" : ""}`}>
-        {productosActuales.map((prod, index) => {
-          const imagePath = encontrarImagen(prod);
-
-          return (
-            <div key={`${prod.id || index}-${pagina}`} className="producto">
-              <img
-                src={imagePath}
-                alt={prod.nombre}
-                className="producto__image"
-                onError={(e) => {
-                  e.target.src = images["default.jpeg"] || "";
-                  e.target.alt = "Imagen no disponible";
-                }}
-              />
-              <h3 className="producto__name">{prod.nombre}</h3>
-              <p className="producto__precio">
-                {prod.precio ? `RD$${prod.precio}` : "Precio no disponible"}
-              </p>
-              <p className="producto__description">{prod.descripcion}</p>
-            </div>
-          );
-        })}
+            return (
+              <div key={`${prod.id || index}-${pagina}`} className="producto">
+                <img
+                  src={imagePath}
+                  alt={prod.nombre}
+                  className="producto__image"
+                  onError={(e) => {
+                    e.target.src = images["default.jpeg"] || "";
+                    e.target.alt = "Imagen no disponible";
+                  }}
+                />
+                <h3 className="producto__name">{prod.nombre}</h3>
+                <p className="producto__precio">
+                  {prod.precio ? `RD$${prod.precio}` : "Precio no disponible"}
+                </p>
+                <p className="producto__description">{prod.descripcion}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {totalPaginas > 1 && (
