@@ -4,7 +4,7 @@ import instagramIcon from "../assets/img/instagram.png";
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" id="contacto">
       <div className="footer-logo">
         <h2>SweetBites</h2>
         <p>Si Dios te dio la idea, te dará los clientes</p>

@@ -33,9 +33,7 @@ function Lista() {
 
   return (
     <div className="lista-container">
-      <button className="arrow prev" onClick={handlePrev}>&larr;</button>
-      <button className="arrow next" onClick={handleNext}>&rarr;</button>
-
+      
       {images.map((img, i) => (
         <img
           key={i}

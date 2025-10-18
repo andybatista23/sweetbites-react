@@ -75,77 +75,85 @@ const Pedido = ({ onSuccess }) => {
             <h2 className="modal-title">Realiza tu pedido</h2>
 
             <form className="pedido-form" onSubmit={handleSubmit} autoComplete="off">
-              <label htmlFor="nombre">Nombre:</label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                value={form.nombre}
-                onChange={handleChange}
-                required
-              />
+              <div className="form-fields">
+                <label htmlFor="nombre">Nombre:</label>
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  value={form.nombre}
+                  onChange={handleChange}
+                  placeholder="Tu nombre completo"
+                  required
+                />
 
-              <label htmlFor="telefono">Teléfono:</label>
-              <input
-                type="tel"
-                id="telefono"
-                name="telefono"
-                value={form.telefono}
-                onChange={handleChange}
-                required
-                placeholder="Ingresa tu número de teléfono"
-              />
+                <label htmlFor="telefono">Teléfono:</label>
+                <input
+                  type="tel"
+                  id="telefono"
+                  name="telefono"
+                  value={form.telefono}
+                  onChange={handleChange}
+                  required
+                  placeholder="Ingresa tu número de teléfono"
+                />
 
-              <label htmlFor="producto">Producto:</label>
-              <select
-                id="producto"
-                name="producto"
-                value={form.producto}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Selecciona un producto</option>
-                <option value="Cupcake de fresa">Cupcake de fresa</option>
-                <option value="Cupcake de chocolate">Cupcake de chocolate</option>
-                <option value="Biscocho de vainilla">Biscocho de vainilla</option>
-                <option value="Brownie">Brownie</option>
-              </select>
+                <label htmlFor="producto">Producto:</label>
+                <select
+                  id="producto"
+                  name="producto"
+                  value={form.producto}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">Selecciona un producto</option>
+                  <option value="Cupcake de fresa">Cupcake de fresa</option>
+                  <option value="Cupcake de chocolate">Cupcake de chocolate</option>
+                  <option value="Biscocho de vainilla">Biscocho de vainilla</option>
+                  <option value="Brownie">Brownie</option>
+                </select>
 
-              <label htmlFor="cantidad">Cantidad:</label>
-              <input
-                type="number"
-                id="cantidad"
-                name="cantidad"
-                value={form.cantidad}
-                onChange={handleChange}
-                min="1"
-                required
-              />
+                <label htmlFor="cantidad">Cantidad:</label>
+                <input
+                  type="number"
+                  id="cantidad"
+                  name="cantidad"
+                  value={form.cantidad}
+                  onChange={handleChange}
+                  min="1"
+                  required
+                />
 
-              <label htmlFor="direccion">Dirección de entrega:</label>
-              <input
-                type="text"
-                id="direccion"
-                name="direccion"
-                value={form.direccion}
-                onChange={handleChange}
-                placeholder="Calle, número, ciudad..."
-                required
-              />
+                <label htmlFor="direccion">Dirección de entrega:</label>
+                <input
+                  type="text"
+                  id="direccion"
+                  name="direccion"
+                  value={form.direccion}
+                  onChange={handleChange}
+                  placeholder="Calle, número, ciudad..."
+                  required
+                />
 
-              <label htmlFor="mensaje">Mensaje adicional:</label>
-              <textarea
-                id="mensaje"
-                name="mensaje"
-                rows="3"
-                value={form.mensaje}
-                onChange={handleChange}
-                placeholder="Instrucciones especiales, decoración, etc."
-                style={{ maxHeight: '150px', overflowY: 'auto' }}
-              />
+                <label htmlFor="mensaje">Mensaje adicional:</label>
+                <textarea
+                  id="mensaje"
+                  name="mensaje"
+                  value={form.mensaje}
+                  onChange={handleChange}
+                  placeholder="Instrucciones especiales, decoración, etc."
+                />
+              </div>
 
               <button type="submit" disabled={sending}>
-                {sending ? 'Enviando pedido...' : 'Enviar pedido'}
+                {sending ? (
+                  <>
+                    <span className="spinner"></span>
+                    <span>Enviando...</span>
+                  </>
+                ) : (
+                  'Enviar pedido'
+                )}
               </button>
             </form>
           </div>
