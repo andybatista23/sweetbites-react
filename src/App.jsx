@@ -24,21 +24,22 @@ function App() {
       tipo: "cupcake",
       imagen: "1",
       nombre: "Cupcake de fresa",
-      precio: "#",
+      precio: "75.00",
       descripcion: "Ideal para san valentín y regarle a ese ser amado.",
     },
     {
       tipo: "cupcake",
       imagen: "2",
-      nombre: "Cupcakes de chocolate",
-      precio: "#",
+      nombre: "Cupcakes de oreo",
+      precio: "95.00",
       descripcion: "Para los amantes del chocolate y las oreos.",
     },
+
     {
       tipo: "cupcake",
       imagen: "3",
-      nombre: "Cupcake relleno de mermelada",
-      precio: "#",
+      nombre: "Red Velvet relleno de mermelada",
+      precio: "125.00",
       descripcion:
         "Delicioso cupcake relleno de suave mermelada artesanal, cubierto con una fina capa de glaseado y decorado con toques de crema.",
     },
@@ -46,7 +47,7 @@ function App() {
       tipo: "cupcake",
       imagen: "4",
       nombre: "Cupcake relleno de Chocolate",
-      precio: "#",
+      precio: "90.00",
       descripcion:
         "Delicioso cupcake relleno de los mejores chocolates, cubierto con chispas de chocolate.",
     },
@@ -54,7 +55,7 @@ function App() {
       tipo: "cupcake",
       imagen: "5",
       nombre: "Cupcake de vainilla",
-      precio: "#",
+      precio: "70.00",
       descripcion:
         "Suave cupcake de vainilla con aroma irresistible, relleno de exquisito chocolate fundido y cubierto con una lluvia de chispas que aportan el toque perfecto de dulzura y textura.",
     },
@@ -62,45 +63,39 @@ function App() {
       tipo: "cupcake",
       imagen: "6",
       nombre: "Cupcake de chocolate",
-      precio: "#",
+      precio: "80.00",
       descripcion:
         "Suave cupcake de chocolate, con nuestro delicioso suspiro y chispas de colores.",
     },
     {
       tipo: "biscocho",
       imagen: "1",
-      nombre: "Biscocho de vainilla",
-      precio: "#",
+      nombre: "Biscocho Tres Leches",
+      precio: "125.00",
       descripcion: "Biscocho clásico, suave y delicioso.",
     },
     {
       tipo: "biscocho",
       imagen: "3",
-      nombre: "Biscocho de zanahorias",
-      precio: "#",
+      nombre: "Cake de zanahorias",
+      precio: "100.00",
       descripcion: "Delicioso biscocho de zanahoria con cobertura cremosa.",
     },
     {
       tipo: "biscocho",
       imagen: "4",
-      nombre: "Brownie en forma de corazón",
-      precio: "#",
+      nombre: "Brownie corazón",
+      precio: "75.00",
       descripcion:
         "Brownie ideal para tu pareja dale ese dulce que solo tu le sabe dar.",
     },
-    {
-      tipo: "biscocho",
+
+     {
+      tipo: "Brownies",
       imagen: "7",
-      nombre: "Choco-Flan",
-      precio: "#",
-      descripcion: "Ideal para ese día especial con tu familia.",
-    },
-    {
-      tipo: "biscocho",
-      imagen: "8",
-      nombre: "Choco-Flan",
-      precio: "#",
-      descripcion: "Disponible para ti en forma de corazón.",
+      nombre: "Brownie clásico",
+      precio: "75.00",
+      descripcion: "Ideal para cualquier ocasión.",
     },
   ];
 
