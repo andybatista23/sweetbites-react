@@ -189,7 +189,16 @@
   width: 100%;
 }
 
-/* Responsive */
+/* Responsive Design */
+/* Large Desktop */
+@media (min-width: 1201px) {
+  .producto {
+    flex: 1 1 calc(33.333% - 40px);
+    max-width: 380px;
+  }
+}
+
+/* Desktop y Tablet grande */
 @media (max-width: 1200px) {
   .producto {
     flex: 1 1 calc(50% - 40px);
@@ -198,6 +207,12 @@
   
   .productos-wrapper {
     padding: 15px;
+    max-width: 95%;
+  }
+  
+  .arrow.prev { left: -10px; }
+  .arrow.next { right: -10px; }
+}
   }
 }
 

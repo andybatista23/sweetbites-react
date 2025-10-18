@@ -22,15 +22,6 @@ function Lista() {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  // Funciones para flechas
-  const handlePrev = () => {
-    setIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-  };
-
-  const handleNext = () => {
-    setIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
   return (
     <div className="lista-container">
       

@@ -66,3 +66,75 @@
 .footer-contact p {
   margin: 0.2rem 0;
 }
+
+/* ----------------- Responsividad ----------------- */
+/* Mobile pequeño */
+@media screen and (max-width: 320px) {
+  .footer {
+    padding: 1.5rem 0.8rem;
+    gap: 1rem;
+  }
+
+  .footer-logo h2 {
+    font-size: 1.5rem;
+  }
+
+  .footer-logo p {
+    font-size: 0.9rem;
+  }
+
+  .footer-social {
+    gap: 1rem;
+  }
+
+  .footer-social a {
+    font-size: 1.5rem;
+  }
+
+  .footer-social .icon-img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-contact {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile */
+@media screen and (min-width: 321px) and (max-width: 480px) {
+  .footer {
+    padding: 1.8rem 1rem;
+  }
+
+  .footer-logo h2 {
+    font-size: 1.7rem;
+  }
+
+  .footer-logo p {
+    font-size: 1rem;
+  }
+
+  .footer-social .icon-img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .footer {
+    padding: 2rem 1.5rem;
+  }
+
+  .footer-logo h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Desktop pequeño */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .footer {
+    padding: 2.5rem 2rem;
+  }
+}

@@ -1,72 +1,101 @@
-/* Lista.css */
-
-/* Contenedor principal - ocupa toda la pantalla */
+/* Contenedor principal: fondo suave, centrado y con sombra */
 .lista-container {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background-color: #fdf6f0;
+  width: 100%;
+  min-height: 55vh;
+  max-height: 60vh;
+  padding: 2rem 1rem;
+  background: linear-gradient(180deg, #fdf6f0 0%, #fff8f2 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-
+  cursor: default;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: all 0.3s ease-in-out;
+  margin: 0 auto;
+  max-width: 1200px; /* Ancho máximo para pantallas grandes */
 }
 
-/* Carrusel con efecto de desvanecimiento tipo "polvo" */
-.lista-img {
+/* Contenedor interno */
+.lista-inner {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+/* Cada item del carrusel */
+.lista-item {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: auto;
-  height: 80%;
-  max-width: 90%;
-  object-fit: contain;
+  transform: translate(-50%, -50%) scale(1); /* quitar escala extra */
+  width: 90%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
-  transition: opacity 1.5s ease-in-out;
+  pointer-events: none;
   z-index: 1;
+  transition: opacity 500ms ease-in-out, transform 400ms ease-in-out;
+  will-change: opacity, transform;
+  border-radius: 12px;
 }
 
-.lista-img.active {
+.lista-item.active {
   opacity: 1;
+  pointer-events: auto;
   z-index: 2;
+  transform: translate(-50%, -50%) scale(1); /* siempre 1 */
 }
 
-/* Opcional: agregar un efecto de escala sutil para simular dispersión de polvo */
-.lista-img.active {
-  animation: fadeScale 1.5s ease-in-out forwards;
+/* Imagen dentro del item */
+.lista-item .lista-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
 }
 
-@keyframes fadeScale {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1.05);
-  }
-  50% {
-    opacity: 0.5;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
+/* Controles de la imagen */
+.lista-controls {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 6px;
+  z-index: 6;
 }
 
-
-
-/* Mensaje cuando no hay imágenes */
-.lista-container > div {
-  font-size: 1.2rem;
-  color: #666;
-  text-align: center;
+.lista-controls button {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 5px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #6B4226;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
-/* Indicadores de posición (puntos) */
+.lista-controls button:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 4px 12px rgba(107,66,38,0.12);
+}
+
+/* Indicadores de posición */
 .carousel-dots {
   position: absolute;
-  bottom: 20px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -75,10 +104,10 @@
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.6);
   border: 2px solid #7b4bb7;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -89,49 +118,81 @@
   transform: scale(1.2);
 }
 
-/* Responsivo para móviles */
-@media screen and (max-width: 768px) {
+
+
+/* Mensaje cuando no hay imágenes */
+.lista-container > div {
+  font-size: 1.1rem;
+  color: #666;
+  text-align: center;
+  user-select: none;
+}
+
+/* Mobile pequeño */
+@media screen and (max-width: 320px) {
   .lista-container {
-    height: 70vh;
+    min-height: 40vh;
+    padding: 0.5rem;
+    max-width: 100%;
   }
-
+  .lista-inner { max-width: 100%; }
+  .lista-item { width: 95%; }
   .arrow {
-    font-size: 1.5rem;
-    padding: 10px 14px;
+    font-size: 1.2rem;
+    padding: 6px 10px;
+    margin: 0 5px;
   }
-
-  .arrow.prev {
-    left: 15px;
-  }
-
-  .arrow.next {
-    right: 15px;
-  }
-
-  .lista-img {
-    height: 70%;
-    max-width: 85%;
-    transition: opacity 1.5s ease-in-out; /* Un poco más rápido en móviles */
-  }
-
-  .carousel-dots {
-    bottom: 10px;
-  }
-  
-  .dot {
-    width: 10px;
-    height: 10px;
+  .carousel-dots { bottom: 8px; }
+  .dot { width: 6px; height: 6px; }
+  .lista-controls button {
+    padding: 4px 6px;
+    font-size: 0.8rem;
   }
 }
 
-/* Responsivo para tablets */
-@media screen and (max-width: 1024px) and (min-width: 769px) {
+/* Mobile */
+@media screen and (min-width: 321px) and (max-width: 480px) {
   .lista-container {
-    height: 85vh;
+    min-height: 45vh;
+    padding: 1rem;
+    max-width: 100%;
   }
-  
-  .arrow {
-    font-size: 1.8rem;
-    padding: 11px 16px;
+  .lista-inner { max-width: 100%; }
+  .lista-item { width: 92%; }
+
+  .carousel-dots { bottom: 10px; }
+  .dot { width: 7px; height: 7px; }
+}
+
+/* Tablet */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .lista-container {
+    min-height: 50vh;
+    padding: 1.5rem;
+    max-width: 95%;
   }
+  .lista-inner { max-width: 95%; }
+  .lista-item { width: 90%; }
+
+  .dot { width: 8px; height: 8px; }
+}
+
+/* Desktop pequeño */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .lista-container {
+    min-height: 55vh;
+    max-width: 90%;
+  }
+  .lista-inner { max-width: 85%; }
+  .lista-item { width: 88%; }
+
+}
+
+/* Desktop */
+@media screen and (min-width: 1025px) {
+  .lista-container {
+    max-width: 1200px;
+  }
+  .lista-inner { max-width: 80%; }
+  .lista-item { width: 85%; }
 }

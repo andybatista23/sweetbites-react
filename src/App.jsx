@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import "./styles/responsive.css";
 import Header from "./components/Header";
 import Lista from "./components/Lista";
 import Sobrenosotros from "./components/sobre-nosotros";
@@ -7,7 +8,17 @@ import Productos from "./components/Productos";
 import Dividers from "./components/Lineas";
 import Contact from "./components/contacto";
 import Footer from "./components/Footer";
+import Loader from "./components/Loader";
+import analogo from "./assets/img/analogo.png";
+import brownie1 from "./assets/img/Brownies-1.jpeg";
+import brownie2 from "./assets/img/Brownies-2.jpeg";
+import brownie4 from "./assets/img/Brownies-4.jpeg";
+import brownie5 from "./assets/img/Brownies-5.jpeg";
+import brownie7 from "./assets/img/Brownies-7.jpeg";
+
 function App() {
+  const [loading, setLoading] = useState(true);
+
   const productos = [
     {
       tipo: "cupcake",
@@ -93,28 +104,33 @@ function App() {
     },
   ];
 
+  const preload = [analogo, brownie1, brownie2, brownie4, brownie5, brownie7];
+
   return (
     <>
-      <Header />
+      {loading && (
+        <Loader assets={preload} onFinish={() => setLoading(false)} />
+      )}
 
-      <h1 id="inicio"></h1>
-      <Lista />
-      <Dividers/>
+      {!loading && (
+        <>
+          <Header />
 
-      <h1 id="Productos">Productos</h1>
-      
+          <h1 id="inicio"></h1>
+          <Lista />
+          <Dividers />
 
-      <Productos listaProductos={productos} productosPorPagina={3} />
-      <Contact/>
-      <Dividers/>
+          <h1 id="Productos">Productos</h1>
 
-      <Sobrenosotros />
-      
-      <Footer/>
-      
+          <Productos listaProductos={productos} productosPorPagina={3} />
+          <Contact />
+          <Dividers />
 
+          <Sobrenosotros />
 
-      
+          <Footer />
+        </>
+      )}
     </>
   );
 }

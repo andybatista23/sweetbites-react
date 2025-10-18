@@ -1,0 +1,58 @@
+.app-loader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.45);
+  z-index: 9999;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px;
+}
+
+.loader-logo {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(0,0,0,0.28));
+}
+
+.heartbeat {
+  animation: heartbeat 1.6s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.06); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.loader-bar {
+  width: 360px;
+  height: 14px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.loader-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #C7B7E0, #c73bff);
+  width: 0%;
+  transition: width 400ms ease-in-out;
+}
+
+.loader-pct {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+@media (max-width: 420px) {
+  .loader-logo { width: 120px; height: 120px }
+  .loader-bar { width: 90%; height: 12px; }
+}

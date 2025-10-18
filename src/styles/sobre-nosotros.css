@@ -30,6 +30,9 @@
   text-align: center;
 }
 
+/* Evitar que el header tape la sección al hacer scroll por ancla */
+#sobrenosotros { scroll-margin-top: 80px; }
+
 /* Texto */
 .sobrenosotros-text {
   font-size: 1.2rem;
@@ -39,25 +42,65 @@
   margin-bottom: 15px;
 }
 
+/* Contenedor extra (misión + valores/testimonios) */
+
+/* Sección separada para misión/valores (contenedor hermano) */
+.sobrenosotros-extra {
+  max-width: 900px;
+  margin: 24px auto 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 18px;
+}
+
+.sobrenosotros-extra .mision,
+.sobrenosotros-extra .valores {
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.sobrenosotros-extra h3 {
+  color: #6B4226;
+  margin-bottom: 10px;
+}
+
+.sobrenosotros-extra ul {
+  list-style: disc;
+  padding-left: 18px;
+  color: #444;
+}
+
 /* ----------------- Responsividad ----------------- */
-@media screen and (max-width: 768px) {
+/* Mobile pequeño */
+@media screen and (max-width: 320px) {
   .csobrenosotros {
-    padding: 25px 15px;
-    margin: 30px 15px;
+    padding: 15px 10px;
+    margin: 15px 10px;
   }
 
   .sobrenosotros {
-    font-size: 2rem;
+    font-size: 1.4rem;
   }
 
   .sobrenosotros-text {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .sobrenosotros-extra {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 10px;
   }
 }
 
-@media screen and (max-width: 480px) {
+/* Mobile */
+@media screen and (min-width: 321px) and (max-width: 480px) {
   .csobrenosotros {
-    padding: 20px 10px;
+    padding: 20px 15px;
     margin: 20px 10px;
   }
 
@@ -66,7 +109,54 @@
   }
 
   .sobrenosotros-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .sobrenosotros-extra {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 15px;
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .csobrenosotros {
+    padding: 25px 20px;
+    margin: 30px 15px;
+    max-width: 95%;
+  }
+
+  .sobrenosotros {
+    font-size: 2rem;
+  }
+
+  .sobrenosotros-text {
+    font-size: 1.1rem;
+  }
+
+  .sobrenosotros-extra {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 18px;
+    max-width: 95%;
+  }
+}
+
+/* Desktop pequeño */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .csobrenosotros {
+    max-width: 90%;
+  }
+
+  .sobrenosotros-extra {
+    max-width: 90%;
+  }
+}
+
+  .sobrenosotros-text {
     font-size: 0.95rem;
     line-height: 1.5;
   }
-}
+

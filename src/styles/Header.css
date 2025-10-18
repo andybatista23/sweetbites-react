@@ -89,9 +89,10 @@
 }
 
 /* Estilos responsivos para pantallas pequeñas */
+/* Tablets y dispositivos móviles */
 @media screen and (max-width: 768px) {
   .header {
-    padding: 12px 20px;
+    padding: 10px 15px;
   }
 
   .nav {
@@ -99,11 +100,19 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #C7B7E0; /* Lila suave de SweetBites */
+    background-color: #C7B7E0;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-in-out;
     box-shadow: 0 5px 15px rgba(163, 126, 208, 0.3);
+  }
+
+  .logo a {
+    font-size: 1.5rem;
+  }
+
+  .logo-img {
+    width: 40px;
   }
 
   .nav.open {

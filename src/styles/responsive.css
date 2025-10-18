@@ -1,0 +1,145 @@
+/* Variables globales para breakpoints */
+:root {
+  --mobile-s: 320px;
+  --mobile-m: 375px;
+  --mobile-l: 425px;
+  --tablet: 768px;
+  --laptop: 1024px;
+  --laptop-l: 1440px;
+  --desktop: 1920px;
+}
+
+/* Utilidades responsivas */
+.hide-mobile {
+  display: none !important;
+}
+
+@media screen and (min-width: 768px) {
+  .hide-mobile {
+    display: initial !important;
+  }
+  
+  .show-mobile {
+    display: none !important;
+  }
+}
+
+/* Contenedores responsivos */
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+@media screen and (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Grid responsivo */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 640px) {
+  .grid-cols-2-sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .grid-cols-3-md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .grid-cols-4-lg {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Espaciado responsivo */
+.spacing {
+  padding: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .spacing {
+    padding: 2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .spacing {
+    padding: 3rem;
+  }
+}
+
+/* Tipografía responsiva */
+html {
+  font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+/* Márgenes y padding responsivos */
+.margin-responsive {
+  margin: 1rem;
+}
+
+.padding-responsive {
+  padding: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .margin-responsive {
+    margin: 2rem;
+  }
+  
+  .padding-responsive {
+    padding: 2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .margin-responsive {
+    margin: 3rem;
+  }
+  
+  .padding-responsive {
+    padding: 3rem;
+  }
+}
